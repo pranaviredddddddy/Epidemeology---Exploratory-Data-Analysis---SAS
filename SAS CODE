@@ -1,0 +1,127 @@
+SAS Code and Analysis
+The following SAS code was used to perform the analysis:
+
+1. Importing and Preparing Data
+
+/* Import and prepare data */
+LIBNAME REDDY 'C:\Users\pranavir\Box\EEH 505\Data Sets';
+%INCLUDE 'C:\Users\pranavir\Box\EEH 505\Programs\HW 7\FormatsNHANES20221.sas';
+
+DATA HW11;
+  SET REDDY.NHANES_HW9;
+RUN;
+
+2. Linear Regression Analysis
+
+/* Linear regression analysis between age and bone mineral density */
+PROC REG DATA=HW11;
+  MODEL FEMORBMD = AGE;
+RUN;
+
+3. Creating Categorical Variables for Age and Osteoporosis
+
+/* Creating age and osteoporosis categorical variables */
+DATA NHANES8;
+  SET HW11;
+  IF AGE NE . AND age < 60 THEN AGEGRP = 1;
+  ELSE IF AGE GE 60 AND age < 75 THEN AGEGRP = 2;
+  ELSE IF AGE GE 75 THEN AGEGRP = 3;
+  LABEL AGEGRP = "AGE GROUPS";
+
+  IF OSTEO NE . AND OSTEO = 0 THEN OSTEO2 = 0;
+  ELSE IF OSTEO = 1 THEN OSTEO2 = 1;
+  ELSE IF OSTEO = 2 THEN OSTEO2 = 1;
+  LABEL OSTEO2 = "OSTEOPOROSIS/PENIA 2 LEVEL";
+RUN;
+
+PROC FREQ DATA=NHANES8;
+  TABLES AGEGRP;
+RUN;
+
+PROC FREQ DATA=NHANES8;
+  TABLES OSTEO*OSTEO2;
+RUN;
+
+PROC FORMAT;
+  value AGEGRPF 1="40 to <60 years" 2="60 to <75 years" 3="75 years and older";
+  value OSTEOTWOF 0="No osteoporosis/penia" 1="Osteoporosis or Osteopenia";
+RUN;
+
+Data Nhanes8;
+  set Nhanes8;
+  format agegrp AGEGRPF. osteo2 OSTEOTWOF.;
+RUN;
+
+LIBNAME REDDY 'C:\Users\pranavir\Box\EEH 505\Data Sets';
+DATA REDDY.NHANES_HW13;
+  SET NHANES8;
+RUN;
+
+4. Crude Association between OSTEO2 and AMD2
+
+/* Crude association between OSTEO2 and AMD2 */
+PROC FREQ DATA = HW13;
+  TABLE osteo2*amd2 / cmh;
+RUN;
+
+5. Stratified Analysis by Age Group
+
+/* Stratified by AGEGRP */
+PROC SORT DATA = HW13;
+  BY AGEGRP;
+RUN;
+
+PROC FREQ DATA = HW13;
+  TABLE agegrp*osteo2*amd2 / cmh;
+RUN;
+
+6. Logistic Regression Analysis
+
+/* Logistic regression for crude and adjusted models */
+proc logistic data=HW13;
+  class osteo2 (ref="No osteoporosis/penia") / param=ref;
+  model amd2 (event="Any AMD") = osteo2 ;
+run;
+
+proc logistic data=HW13;
+  class osteo2 (ref="No osteoporosis/penia") agegrp / param=ref;
+  model amd2 (event="Any AMD") = osteo2 agegrp;
+run;
+
+/* Examining sex as a potential confounder */
+PROC FREQ DATA = HW13;
+  TABLE sex*amd2 / cmh;
+RUN;
+
+PROC FREQ DATA = HW13;
+  TABLE sex*osteo2*amd2 / cmh;
+RUN;
+
+proc logistic data=HW13;
+  class osteo2 (ref="No osteoporosis/penia") sex / param=ref;
+  model amd2 (event="Any AMD") = osteo2 sex;
+run;
+
+7. ANOVA for Continuous Measure of BMD
+
+/* ANOVA for continuous measure of BMD */
+PROC GLM DATA=HW13;
+  CLASS AMD2;
+  MODEL FEMORBMD = AMD2 / SOLUTION;
+  MEANS AMD2;
+  LSMEANS AMD2 / STDERR;
+RUN;
+
+PROC GLM DATA=HW13;
+  CLASS AMD2 AGEGRP;
+  MODEL FEMORBMD = AGEGRP AMD2 / SOLUTION;
+  MEANS AMD2;
+  LSMEANS AMD2 / STDERR;
+RUN;
+
+PROC GLM DATA=HW13;
+  CLASS AMD2 SEX;
+  MODEL FEMORBMD = SEX AMD2 / SOLUTION;
+  MEANS AMD2;
+  LSMEANS AMD2 / STDERR;
+RUN;
