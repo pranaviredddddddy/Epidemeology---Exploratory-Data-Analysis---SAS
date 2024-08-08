@@ -46,5 +46,7 @@ ANOVA Results
 •	The ANOVA analysis further supports the findings, showing significant differences in bone mineral density between individuals with and without AMD. Adjusting for age and sex maintains the significance, underscoring the importance of these variables as confounders.
 
 Conclusion
-•	This project highlights the complex relationships between age, sex, osteoporosis/osteopenia, and AMD. By employing various statistical techniques, the analysis provides valuable insights into potential risk factors and confounders, informing public health strategies and disease management.
+The analysis indicates that both age and sex are significant confounders in the relationship between osteoporosis/osteopenia and AMD. The results highlight the importance of considering these variables in the analysis to avoid biased conclusions.
+
+This project demonstrates the application of various statistical techniques to explore complex relationships between health variables. The detailed analysis and interpretation provide valuable insights that can be used to inform public health strategies and improve disease management.
 
