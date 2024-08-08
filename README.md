@@ -1,6 +1,6 @@
 # NHANES DATASET ANALYSIS - SAS
 
-**Project - Exploring the Association Between Age-Related Macular Degeneration (AMD) and Bone Mineral Density (BMD) Using NHANES Data**
+**Project - Exploring the Association Between Age-Related Macular Degeneration (AMD) and Bone Mineral Density (BMD) Using NHANES Data** - https://pubmed.ncbi.nlm.nih.gov/17493194/
 
 
 **Introduction**
