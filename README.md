@@ -15,6 +15,7 @@ Age-related macular degeneration (AMD) affects the macula, leading to blurred or
 
 The data used in this analysis is derived from the NHANES dataset (NHANES_HW9.sas7bdat). The analysis includes the following variables:
 
+
 AGE: Age of participants
 
 SEX: Gender of participants
@@ -30,6 +31,7 @@ AGEGRP: Categorized age groups (40 to <60 years, 60 to <75 years, 75 years and o
 OSTEO2: Dichotomized osteoporosis/osteopenia status
 
 Hypotheses
+
 **Null Hypothesis (H0)**: There is no significant association between age and bone mineral density.
 
 **Alternative Hypothesis (H1)**: There is a significant association between age and bone mineral density.
