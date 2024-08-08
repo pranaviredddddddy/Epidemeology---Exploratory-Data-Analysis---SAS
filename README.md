@@ -1,9 +1,12 @@
-# Epidemeology---Exploratory-Data-Analysis---SAS
+# NHANES DATASET ANALYSIS - SAS
+
+**Project - Exploring the Association Between Age-Related Macular Degeneration (AMD) and Bone Mineral Density (BMD) Using NHANES Data**
+
 
 **Introduction**
 
 
-Age-related macular degeneration (AMD) is a leading cause of vision loss among individuals aged 50 and older. Understanding the relationship between AMD and bone mineral density (BMD), an indicator of osteoporosis/osteopenia, is essential to identify potential risk factors and inform public health strategies. This project explores the association between AMD and BMD using data from the National Health and Nutrition Examination Survey (NHANES).
+Age-related macular degeneration (AMD) is a leading cause of vision loss among individuals aged 50 and older. Understanding the relationship between AMD and bone mineral density (BMD), an indicator of osteoporosis/osteopenia is essential to identify potential risk factors and inform public health strategies. This project explores the association between AMD and BMD using data from the National Health and Nutrition Examination Survey (NHANES).
 
 **Study Significance**
 
