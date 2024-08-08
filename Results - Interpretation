@@ -1,0 +1,50 @@
+RESULTS 
+
+1. Linear Regression Analysis
+
+The linear regression analysis between age and bone mineral density (FEMORBMD) provided the following results:
+•	Beta-coefficient (β): -0.00452
+•	Standard error: 0.000239
+•	P-value: <0.0001
+These results indicate a significant negative association between age and bone mineral density. As age increases, bone mineral density decreases.
+
+2. Crude and Stratified Associations Using PROC FREQ
+The crude association between OSTEO2 and AMD2 yielded an odds ratio (OR) of 2.17 (95% CI: 1.55-3.03). After stratifying by age group, the odds ratios were:
+•	Age 40 to <60 years: OR = 2.40 (95% CI: 1.67-3.48)
+•	Age 60 to <75 years: OR = 1.29 (95% CI: 0.57-2.90)
+•	Age ≥75 years: OR = 1.29 (95% CI: 0.57-2.90)
+The age-adjusted OR using the CMH method was 2.15 (95% CI: 1.54-3.01).
+
+3. Logistic Regression Analysis
+The logistic regression analysis provided the following results:
+•	Crude OR (95% CI): 2.17 (1.55-3.03)
+•	Age-adjusted OR (95% CI): 2.15 (1.54-3.01)
+•	Sex-adjusted OR (95% CI): 2.42 (1.72-3.42)
+
+4. ANOVA Results
+The ANOVA analysis yielded the following results:
+•	AMD (yes) mean ± SE for FEMORBMD: 0.754 ± 0.012
+•	AMD (no) mean ± SE for FEMORBMD: 0.815 ± 0.003
+•	P-value: <0.0001
+After adjusting for age group:
+•	AMD (yes) mean ± SE for FEMORBMD: 0.76 ± 0.02
+•	AMD (no) mean ± SE for FEMORBMD: 0.815 ± 0.016
+•	P-value: <0.0001
+After adjusting for sex:
+•	AMD (yes) mean ± SE for FEMORBMD: 0.
+
+	Linear Regression Results
+•	The linear regression analysis indicates a significant negative association between age and bone mineral density, with a beta-coefficient of -0.00452 and a p-value <0.0001. This suggests that as age increases, bone mineral density decreases.
+
+Crude and Stratified Associations
+•	The crude association between osteoporosis/osteopenia and AMD shows an odds ratio of 2.17, indicating that individuals with osteoporosis/osteopenia are more likely to have AMD. Stratified analysis by age group reveals varying odds ratios, suggesting age as a potential confounder.
+
+Logistic Regression Analysis
+	Logistic regression analysis confirms the significance of age and sex as confounders. The crude and adjusted odds ratios demonstrate that both age and sex impact the relationship between osteoporosis/osteopenia and AMD.
+
+ANOVA Results
+•	The ANOVA analysis further supports the findings, showing significant differences in bone mineral density between individuals with and without AMD. Adjusting for age and sex maintains the significance, underscoring the importance of these variables as confounders.
+
+Conclusion
+•	This project highlights the complex relationships between age, sex, osteoporosis/osteopenia, and AMD. By employing various statistical techniques, the analysis provides valuable insights into potential risk factors and confounders, informing public health strategies and disease management.
+
